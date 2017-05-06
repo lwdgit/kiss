@@ -1,0 +1,78 @@
+name: 基于Jekyll的博客系统
+email: lwdggm@gmail.com
+description: > # 基于Jekyll的博客系统
+author: lwdgit
+github: https://github.com/lwdgit
+weibo: https://weibo.com/wenfordream
+
+# Build settings
+
+markdown_ext: mdxxx # 故意写错，防止被编译
+
+paginate:     20
+paginate_path: ./page/:num/
+permalink:     ./post/:categories/:year-:month-:day-:title:output_ext
+
+rss_path : ./feed.xml
+
+source:  .
+exclude: ["node_modules", "scripts", "vue"]
+
+destination:      ./.site
+layouts_dir:      ./_layouts
+
+excerpt_separator: <!--more-->  # you can specify your own separator, of course.
+      
+collections:
+  articles:
+    output: true
+    title: Articles
+  essays:
+    output: true
+    title: Academic Essays
+  slides:
+    output: true
+    title: Slides
+  projects:
+    output: true
+    title: Projects
+
+defaults:
+  - scope:
+      path: "_posts" # an empty string here means all files in the project
+      type: "posts" # previously `post` in Jekyll 2.2.
+    values:
+      layout: "posts"
+      comments: false
+      category: "未归类"
+
+  - scope:
+      path: "_articles" # an empty string here means all files in the project
+      type: "articles" # previously `post` in Jekyll 2.2.
+    values:
+      layout: "articles"
+      comments: false
+      category: "未归类"
+
+  - scope:
+      path: "_projects" # an empty string here means all files in the project
+      type: "projects" # previously `post` in Jekyll 2.2.
+    values:
+      layout: "projects"
+      comments: false
+      category: "未归类"
+
+  - scope:
+      path: "_essays" # an empty string here means all files in the project
+      type: "essays" # previously `post` in Jekyll 2.2.
+    values:
+      layout: "essays"
+      category: "未归类"
+
+  - scope:
+      path: "_slides" # an empty string here means all files in the project
+      type: "slides" # previously `post` in Jekyll 2.2.
+    values:
+      layout: "slides"
+      category: "未归类"
+  
