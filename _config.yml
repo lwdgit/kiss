@@ -1,15 +1,17 @@
-name: 基于Jekyll的博客系统
+name: 极简博客系统
 email: lwdggm@gmail.com
-description: > # 基于Jekyll的博客系统
+description: 极简博客系统
 author: lwdgit
 github: https://github.com/lwdgit
-weibo: https://weibo.com/wenfordream
+mail: lwdggm@gmail.com
+logo: https://avatars2.githubusercontent.com/u/5530205?v=3&s=20
+
 
 # Build settings
 
-markdown_ext: mdxxx # 故意写错，防止被编译
+markdown_ext: mdxxx # 防止md文件被编译
 
-paginate:     20
+paginate:     20   # 每页显示20条
 paginate_path: ./page/:num/
 permalink:     ./post/:categories/:year-:month-:day-:title:output_ext
 

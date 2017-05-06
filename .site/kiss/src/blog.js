@@ -5,6 +5,15 @@ import './theme/md.less'
 import './theme/style.less'
 
 const domain = window.location.hostname === '127.0.0.1' ? './.site' : '.'
+const meta = (function () {
+  const _meta = {}
+  Array.prototype.forEach.call(document.querySelectorAll('meta'), function (item) {
+    if (item.name) {
+      _meta[item.name] = item.content
+    }
+  })
+  return _meta
+}())
 
 const Layout = function (content) {
   return m('.container', [
@@ -17,7 +26,7 @@ const Layout = function (content) {
 const Header = m('header', [
   m('nav.navigation', [
     m('.menu', m.trust('<svg aria-hidden="true" class="octicon octicon-three-bars" height="24" version="1.1" viewBox="0 0 12 16" width="18"><path fill-rule="evenodd" d="M11.41 9H.59C0 9 0 8.59 0 8c0-.59 0-1 .59-1H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zm0-4H.59C0 5 0 4.59 0 4c0-.59 0-1 .59-1H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zM.59 11H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1H.59C0 13 0 12.59 0 12c0-.59 0-1 .59-1z"></path></svg>')),
-    m('img[src="https://avatars2.githubusercontent.com/u/5530205?v=3&s=20"]', {style: {height: '27px', width: '27px'}}),
+    m('img', {style: {height: '27px', width: '27px'}, src: meta.logo}),
     m('input[type=checkbox].dummy#show-menu', {style: {opacity: 0}}),
     m('label.wrap[for="show-menu"]', m('aside', [
       m('a', { href: '/', oncreate: m.route.link }, '首页'),
@@ -29,10 +38,10 @@ const Header = m('header', [
 ])
 
 const Footer = m('footer', [
-  m('.copy-right', '© 2017 lwdgit'),
+  m('.copy-right', '© 2017 ' + meta.author),
   m('.links', [
-    m('a', { href: 'https://github.com/lwdgit/' }, 'Github'),
-    m('a', { href: 'mailto:lwdggm@gmail.com?subject=Hello world' }, 'Gmail')
+    m('a', { href: meta.github }, 'Github'),
+    m('a', { href: 'mailto:' + meta.mail + '?subject=Hello world' }, 'Mail')
   ])
 ])
 

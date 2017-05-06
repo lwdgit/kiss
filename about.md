@@ -9,4 +9,4 @@ Kiss (Keep it simple stupid.) Blog 系统理念。
 3. 一键fork即可使用
 4. 轻量简洁
 
-访问路径: https://lwdgit.github.io/kiss。
+访问路径: https://lwdgit.github.io/kiss

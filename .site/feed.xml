@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title></title>
-    <description></description>
+    <description>极简博客系统</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 06 May 2017 19:12:49 +0800</pubDate>
-    <lastBuildDate>Sat, 06 May 2017 19:12:49 +0800</lastBuildDate>
+    <pubDate>Sun, 07 May 2017 00:12:17 +0800</pubDate>
+    <lastBuildDate>Sun, 07 May 2017 00:12:17 +0800</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
     
       <item>
@@ -532,10 +532,10 @@ emoji列表：http://www.emoji-cheat-sheet.com/
       </item>
     
       <item>
-        <title>Jas使用规范</title>
-        <description>JAS设计的初忠是简单易用（kiss原则），所以在实际使用中没有太多讲究，不过考虑到有些人可能对 jeylly 的机制不了解，所以在此提醒一下。
+        <title>使用说明</title>
+        <description>Kiss设计的初忠是简单易用（kiss原则），所以在实际使用中没有太多讲究，不过考虑到有些人可能对 jeylly 的机制不了解，所以在此提醒一下。
 
-JAS完全是基于github jekyll的能力构建，但是其他纯jekyll的站点不一样的是，本系统并不利用其生成网页，而是只生成json数据。所以在UI定制上我们可以完全
+Kiss完全是基于github jekyll的能力构建，但是其他纯jekyll的站点不一样的是，本系统并不利用其生成网页，而是只生成json数据。所以在UI定制上我们可以完全
 脱离jekyll的限制，使用任意自己熟悉的前端框架来搭建一个前后端分离的站点，当然，你也可以利用这个json数据来构建你的app甚至是微信小程序。
 
 在clone本项目之后，你所需要做的就是往`_posts`目录增加你的文章即可，一种省事的办法是直接在`github`上提交。本文就是直接在浏览器里完成。
@@ -565,8 +565,8 @@ tags: my tag
 ```
 </description>
         <pubDate>Sat, 22 Apr 2017 00:00:00 +0800</pubDate>
-        <link>/post/%E6%9C%AA%E5%BD%92%E7%B1%BB/2017-04-22-JAS%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83.md</link>
-        <guid isPermaLink="true">/post/%E6%9C%AA%E5%BD%92%E7%B1%BB/2017-04-22-JAS%E4%BD%BF%E7%94%A8%E8%A7%84%E8%8C%83.md</guid>
+        <link>/post/%E6%9C%AA%E5%BD%92%E7%B1%BB/2017-04-22-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md</link>
+        <guid isPermaLink="true">/post/%E6%9C%AA%E5%BD%92%E7%B1%BB/2017-04-22-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md</guid>
         
         
         <category>未归类</category>
