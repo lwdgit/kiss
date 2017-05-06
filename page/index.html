@@ -11,7 +11,7 @@ layout: null
       "tags": {{ post.tags | jsonify }},
       "category": {{ post.category | jsonify }},
       "date": {{ post.date | date: "%Y-%m-%d" | jsonify }},
-      "summary": {% if post.excerpt %} {{ post.excerpt | strip_html | truncatewords:75 | jsonify }} {% else %} {{ post.summary | strip_html | truncatewords:75 | jsonify }}{% endif %}
+      "summary": {% if post.excerpt %} {{ post.excerpt | strip_html | truncatewords:30 | jsonify }} {% else %} {{ post.summary | strip_html | truncatewords:30 | jsonify }}{% endif %}
     }{% if forloop.last == false %},{% endif %} 
   {% endfor %}
   ]
