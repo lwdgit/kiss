@@ -16,10 +16,10 @@
     "add": "git add -A",
     "install": "bundler install",
     "jekyll": "bundler exec jekyll serve --verbose",
-    "start": "bundler exec jekyll build && cd kiss && yarn install && yarn run dev",
+    "start": "bundler exec jekyll build && cd _kiss && yarn install && yarn run dev",
     "open": "open",
     "postinstall": "node ./scripts/install.js",
-    "build": "cd kiss && yarn install && yarn run build && cd .. && bundler exec jekyll build"
+    "build": "cd _kiss && yarn install && yarn run build && cd .. && bundler exec jekyll build"
   },
   "pre-commit": {
     "run": [
