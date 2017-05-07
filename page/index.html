@@ -11,7 +11,7 @@ layout: null
       "tags": {{ post.tags | jsonify }},
       "category": {{ post.category | jsonify }},
       "date": {{ post.date | date: "%Y-%m-%d" | jsonify }},
-      "summary": {% if post.excerpt %} {{ post.excerpt | strip_html | truncatewords:60 | jsonify }} {% else %} {{ post.summary | strip_html | truncatewords:60 | jsonify }}{% endif %}
+      "summary": {% if post.content contains site.excerpt_separator %} {{  post.content | split: site.excerpt_separator | first | strip_html | jsonify }} {% else %} {{ post.content | strip_html | truncate: 300 | jsonify }}{% endif %}
     }{% if forloop.last == false %},{% endif %} 
   {% endfor %}
   ]
