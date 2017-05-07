@@ -2,33 +2,53 @@
   "posts": [
   
     { 
+      "title": "简明使用教程",
+      "id": "post/%E6%9C%AA%E5%BD%92%E7%B1%BB/简明使用教程",
+      "url": "post/%E6%9C%AA%E5%BD%92%E7%B1%BB/2017-05-07-%E7%AE%80%E6%98%8E%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.md",
+      "tags": [],
+      "category": "未归类",
+      "date": "2017-05-07",
+      "summary":  "## 搭建自己的站点\n\n1.将本项目fork到自己的github项目里\n2. 打开 `_config.yml` ，将文件顶部的设置改为自己的个性化设置，保存。\n\n \n```\nname: 极简博客系统\nmail: lwdggm@gmail.com\ndescription: 极简博客系统\nauthor: lwdgit\ngithub: https://github.com/lwdgit\nmail: lwdggm@gmail.com\nlogo: https://avatars2.githubusercontent.com/u/5530205?v=3&s=20\n```\n\n3. 等待10s钟左右打开 `git-pages` 站点，即可看到效果。\n\n## 发布文章\n\n1. 打开 `_posts` 目录，新建一个名为  `2017-10-10-设置自己的标题标题.md` 文件（形式为 xxxx-xx-xx-title.md）。\n2. 编辑文件内容，保存。\n3. 等待10s钟左右打开 `git-pages` 站点，即可看到新发布的文章。" 
+    }, 
+  
+    { 
+      "title": "特殊字符使用说明",
+      "id": "post/%E6%9C%AA%E5%BD%92%E7%B1%BB/特殊字符使用说明",
+      "url": "post/%E6%9C%AA%E5%BD%92%E7%B1%BB/2017-05-06-%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md",
+      "tags": [],
+      "category": "未归类",
+      "date": "2017-05-06",
+      "summary":  "文件内容本身没有任何限制，但是因为利用了jekyll的限制，所以属于jekyll语法的写法不能直接写，需要特殊处理一下，如:\n \n\n```\n{% raw %}\n\n特殊字符 \n\n{% endraw %}\n```\n\n这样，便可以原样保持输出。\n\n如果需要设置meta元信息，请参考jekyll的官方写法去写:\n\n```\n---\ntitle: my title\ncategory: my tag\ntags: my tag\n---\n```" 
+    }, 
+  
+    { 
+      "title": "如何使用手机快速发布一篇blog",
+      "id": "post/%E6%9C%AA%E5%BD%92%E7%B1%BB/如何使用手机快速发布一篇blog",
+      "url": "post/%E6%9C%AA%E5%BD%92%E7%B1%BB/2017-05-06-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E6%89%8B%E6%9C%BA%E5%BF%AB%E9%80%9F%E5%8F%91%E5%B8%83%E4%B8%80%E7%AF%87blog.md",
+      "tags": [],
+      "category": "未归类",
+      "date": "2017-05-06",
+      "summary":  "本文在手机上发布。\n\n\n接下来让我们一起看一下如何做到。\n\nApp有两个: 一个是 Pocket Git, 用于管理git项目，一个是 Markdown Editors，用于在手机上编写markdown。\n\n![](https://static.dingtalk.com/media/lADPACOG8zdKl4DNB0HNBDU_1077_1857.jpg_300x300.jpg)\n\n\n步骤:\n\n1. clone 博客所在项目。\n\n![](https://static.dingtalk.com/media/lADPACOG8zdLCLvNBprNBDY_1078_1690.jpg_300x300.jpg)\n![](https://static.dingtalk.com/media/lADPACOG8zdLCLnNBqXNBDE_1073_1701.jpg_300x300.jpg)\n![](https://static.dingtalk.com/media/lADPACOG8zdLCLjNA_nNBDY_1078_1017.jpg_300x300.jpg)\n\n\n2. 进入`_posts`目录，新建一个md文件。\n\n3. 点击右上角菜单图标，选择 `Files` > `New File`。\n4. 填写文件名，如: `2017-05-06-my-blog.md`。\n  \n ![](https://static.dingtalk.com/media/lALPACOG8zdKBcPNB4DNBDg_1080_1920.png_300x300.jpg)\n\n5. 点击刚才新建的文件名，此时系统会弹出文件编辑器选择。\n\n![](https://static.dingtalk.com/media/lADPACOG8zdLCLfNA8jNBDA_1072_968.jpg_300x300.jpg)\n\n6. 选择`Markdown Editors`，使用`Markdown Editors`编辑markdown文件。\n![](https://static.dingtalk.com/media/lADPACOG8zdLCLbNAsbNBDg_1080_710.jpg_300x300.jpg)\n\n7. 完成后保存。\n\n8. 回到 `Pocket Git`，将刚才修改的文件进行`Commit`。\n9. 长按文件，按一下大拇指。\n10. 再次长按文件，按一下右下角悬浮球。\n11. 输入commit信息。\n\n![](https://static.dingtalk.com/media/lADPACOG8zdLCLXNA7bNBDg_1080_950.jpg_300x300.jpg)\n![](https://static.dingtalk.com/media/lADPACOG8zdLCLTNA8PNA6c_935_963.jpg_300x300.jpg)\n\n12. 点击云朵图标，选择Push，完成上传。\n![](https://static.dingtalk.com/media/lADPACOG8zdLCLLNAknNAko_586_585.jpg_300x300.jpg)\n\n13. 刷新博客，即可看到效果。\n\n到此，我们完成了所有的操作。\n\n总结：发布本身主要是对Git的操作及Pocket Git的使用熟练度。\n" 
+    }, 
+  
+    { 
       "title": "Markdown语法参考",
       "id": "post/kiss/Markdown语法参考",
       "url": "post/kiss/2017-05-06-Markdown%E8%AF%AD%E6%B3%95%E5%8F%82%E8%80%83.md",
       "tags": ["kiss"],
       "category": "kiss",
       "date": "2017-05-06",
-      "summary":  "Markdown 是一种 Lightweight 标记语言，易读、易写、易改，主要为了方便在 Web 端快速书写文档，由转换器转换为 HTML 呈现在 Web 页面上，最初的 Markdown 转换程序，是一个 Perl 脚本。Markdown 可以使用简单的几个字符，如 `#`, `*`, 等，编写出格式丰富的整齐化一的文档来。 现在，越来越多的 Web 程序支持 Markdown 的在线编辑和展示，如： * [GitHub](https://github.com/) * [Stack Overflow](http://stackoverflow.com/) * [Reddit](https://www.reddit.com/) * [简书](http://www.jianshu.com/) * [作业部落](https://www.zybuluo.com/) 专用于 Downdown 写作或支持该格式编写的编辑器很多，Windows 平台有 Typora, MarkdownPad, MarkPad 等。OSX 平台可选的就太多了，有 Mou, Ulysses, iA Writer, Typed, MacDown, Typora 等一系列好用的工具软件。除此之外，还有一大批如 GNU Emacs, Vim, Sublime Tex, Atom 等猿类编辑器也支持这种格式。 Markdown 文件一般用 `.md` 或 `.markdown` 作为扩展名。 [toc] # 1. 标准Markdown ### 1.1 加粗和强调 ``` *emphasize* **strong** _emphasize_..." 
+      "summary":  "Markdown 是一种 Lightweight 标记语言，易读、易写、易改，主要为了方便在 Web 端快速书写文档，由转换器转换为 HTML 呈现在 Web 页面上，最初的 Markdown 转换程序，是一个 Perl 脚本。Markdown 可以使用简单的几个字符，如 `#`, `*`, 等，编写出格式丰富的整齐化一的文档来。 现在，越来越多的 Web 程序支持 Markdown 的在线编辑和展示，如： * [GitHub](https://github.com/) * [Stack Overflow](http://stackoverflow.com/) * [Reddit](https://www.reddit.com/) * [简书](http://www.jianshu.com/) * [作业部落](https://www.zybuluo.com/) 专用于 Downdown 写作或支持该格式编写的编辑器很多，Windows 平台有 Typora, MarkdownPad, MarkPad 等。OSX 平台可选的就太多了，有 Mou, Ulysses, iA Writer, Typed, MacDown, Typora 等一系列好用的工具软件。除此之外，还有一大批如 GNU Emacs, Vim, Sublime Tex, Atom 等猿类编辑器也支持这种格式。 Markdown 文件一般用..." 
     }, 
   
     { 
-      "title": "使用说明",
-      "id": "post/%E6%9C%AA%E5%BD%92%E7%B1%BB/使用说明",
-      "url": "post/%E6%9C%AA%E5%BD%92%E7%B1%BB/2017-04-22-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md",
-      "tags": [],
-      "category": "未归类",
-      "date": "2017-04-22",
-      "summary":  "Kiss设计的初忠是简单易用（kiss原则），所以在实际使用中没有太多讲究，不过考虑到有些人可能对 jeylly 的机制不了解，所以在此提醒一下。\n\nKiss完全是基于github jekyll的能力构建，但是其他纯jekyll的站点不一样的是，本系统并不利用其生成网页，而是只生成json数据。所以在UI定制上我们可以完全\n脱离jekyll的限制，使用任意自己熟悉的前端框架来搭建一个前后端分离的站点，当然，你也可以利用这个json数据来构建你的app甚至是微信小程序。\n\n在clone本项目之后，你所需要做的就是往`_posts`目录增加你的文章即可，一种省事的办法是直接在`github`上提交。本文就是直接在浏览器里完成。\n除了目录有要求外，文件名也必须按照`xxxx-xx-xx-title.md`的规则来写(`xxxx-xx-xx`表示年月日)。\n\n文件内容本身没有任何限制，但是因为利用了jekyll的限制，所以属于jekyll语法的写法不能直接写，需要特殊处理一下，如:\n \n\n```\n{% raw %}\n\n特殊字符 \n\n{% endraw %}\n```\n\n这样，便可以原样保持输出。\n\n如果需要设置meta元信息，请参考jekyll的官方写法去写:\n\n```\n---\ntitle: my title\ncategory: my tag\ntags: my tag\n---\n```\n" 
-    }, 
-  
-    { 
-      "title": "如何使用 git-pages 托管一个不用build的动态网站？",
-      "id": "post/kiss/how-to-build-a-website-not-need-build",
-      "url": "post/kiss/2017-04-09-how-to-build-a-website-not-need-build.md",
+      "title": "如何使用 git-pages 托管一个不用build的动态博客？",
+      "id": "post/kiss/如何构建一个不用Build的动态博客",
+      "url": "post/kiss/2017-04-09-%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E4%B8%8D%E7%94%A8Build%E7%9A%84%E5%8A%A8%E6%80%81%E5%8D%9A%E5%AE%A2.md",
       "tags": ["kiss"],
       "category": "kiss",
       "date": "2017-04-09",
-      "summary":  "如何使用 git-pages 托管一个不用build的动态网站？\n\n用过不少的开源搭建博客的网站，其中不乏功能很强大，样式很精美的。但是觉得发布一篇博客非得clone下来编译一下，再提交到github是一件令人很不舒服的事，而托管到第三方平台编译麻烦且不划算，于是便萌生了利用`gitpages`自身的编译能力，将md生成为json文件的想法。\n\n于是 **kiss** 诞生了，数据接口目前有以下两个:\n    * `/posts/:page/` 文章列表，默认20个一页，`:page`表示页码，第一页页不用加`:page`参数\n    * `/post/:url` 文章路径，路径可以在`/posts`列表里面获取到\n\n\n按照 `jekyll`的约定，我们不得不把文章写在`_post`下，同时我们还需要防止`jekyll`对默认标记进行特殊处理。所以，建议在写文章时，将文章内容放在 {% raw %}和{% endraw %} 之间，像本文一样，如:\n\n```\n{% raw %}\n\n# 你的文章title\n\n你的文章正文。。。。。\n\n{% endraw %}\n```\n\n* 为什么要费这么大劲绕这么大弯生成一个json数据，官方不是有api?\n\n> * 官方api默认有调用次数限制，所以有一定程度的限制 \n> * 官方api时而会有变更，这样会有后期维护成本，其实基于github api的blog有不少，但现在可以搜得到的基本上挂掉了。而本博客系统采用的标准方式实现，不存在这种问题。\n\n* 是否可以支持跨域？\n\n> 跨域需要支持jsonp，而目前很难做真正的jsonp数据，后期考虑封装一套类jsonp调用库。\n\n* 为什么改了文件没有生效？\n\n> jekyll编译需要时间，时间长短视文件多少而定，一般生效时间为1-5分钟左右。当然也有可能是你的文章里面写了特定代码刚好符合jeylly语法规则，但是又出现了语法错误，这样便会导致编译不通过（编译不通过时会收到邮件提醒），所以建议在写文章时，将文章内容放在 {% raw %}和{% endraw %} 之间。\n\n" 
+      "summary":  "如何使用 git-pages 托管一个不用build的动态网站？\n\n用过不少的开源搭建博客的网站，其中不乏功能很强大，样式很精美的。但是觉得发布一篇博客非得clone下来编译一下，再提交到github是一件令人很不舒服的事，而托管到第三方平台编译麻烦且不划算，于是便萌生了利用`gitpages`自身的编译能力，将md生成为json文件的想法。\n\n于是 **kiss** 诞生了，数据接口目前有以下两个:\n    * `/posts/:page/` 文章列表，默认20个一页，`:page`表示页码，第一页不用加`:page`参数\n    * `/post/:url` 文章路径，路径可以在`/posts`列表里面获取到\n\n\n按照 `jekyll`的约定，我们不得不把文章写在`_post`下，同时我们还需要防止`jekyll`对默认标记进行特殊处理。所以，建议在写文章时，将文章内容放在 {% raw %}和{% endraw %} 之间，像本文一样，如:\n\n```\n{% raw %}\n\n# 你的文章title\n\n你的文章正文。。。。。\n\n{% endraw %}\n```\n\n* 为什么要费这么大劲绕这么大弯生成一个json数据，官方不是有api?\n\n> * 官方api默认有调用次数限制，所以有一定程度的限制 \n> * 官方api时而会有变更，这样会有后期维护成本，其实基于github api的blog有不少，但现在可以搜得到的基本上挂掉了。而本博客系统采用的标准方式实现，不存在这种问题。\n\n* 是否可以支持跨域？\n\n> 跨域需要支持jsonp，而目前很难做真正的jsonp数据，后期考虑封装一套类jsonp调用库。\n\n* 为什么改了文件没有生效？\n\n> jekyll编译需要时间，时间长短视文件多少而定，一般生效时间为1-5分钟左右。当然也有可能是你的文章里面写了特定代码刚好符合jeylly语法规则，但是又出现了语法错误，这样便会导致编译不通过（编译不通过时会收到邮件提醒），所以建议在写文章时，将文章内容放在 {% raw %}和{% endraw %} 之间。\n\n" 
     } 
   
   ]

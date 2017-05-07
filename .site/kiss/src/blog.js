@@ -4,7 +4,6 @@ import './theme/hljs.css'
 import './theme/md.less'
 import './theme/style.less'
 
-const domain = window.location.hostname === '127.0.0.1' ? './.site' : '.'
 const meta = (function () {
   const _meta = {}
   Array.prototype.forEach.call(document.querySelectorAll('meta'), function (item) {
@@ -14,6 +13,8 @@ const meta = (function () {
   })
   return _meta
 }())
+
+const domain = window.location.hostname === '127.0.0.1' ? './.site' : ~meta.base.indexOf('{{') ? './data' : meta.base
 
 const Layout = function (content) {
   return m('.container', [

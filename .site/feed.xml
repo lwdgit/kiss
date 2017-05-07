@@ -5,9 +5,139 @@
     <description>极简博客系统</description>
     <link>/</link>
     <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 07 May 2017 00:12:17 +0800</pubDate>
-    <lastBuildDate>Sun, 07 May 2017 00:12:17 +0800</lastBuildDate>
+    <pubDate>Sun, 07 May 2017 10:22:10 +0800</pubDate>
+    <lastBuildDate>Sun, 07 May 2017 10:22:10 +0800</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
+    
+      <item>
+        <title>简明使用教程</title>
+        <description>## 搭建自己的站点
+
+1.将本项目fork到自己的github项目里
+2. 打开 `_config.yml` ，将文件顶部的设置改为自己的个性化设置，保存。
+
+ 
+```
+name: 极简博客系统
+mail: lwdggm@gmail.com
+description: 极简博客系统
+author: lwdgit
+github: https://github.com/lwdgit
+mail: lwdggm@gmail.com
+logo: https://avatars2.githubusercontent.com/u/5530205?v=3&amp;s=20
+```
+
+3. 等待10s钟左右打开 `git-pages` 站点，即可看到效果。
+
+## 发布文章
+
+1. 打开 `_posts` 目录，新建一个名为  `2017-10-10-设置自己的标题标题.md` 文件（形式为 xxxx-xx-xx-title.md）。
+2. 编辑文件内容，保存。
+3. 等待10s钟左右打开 `git-pages` 站点，即可看到新发布的文章。</description>
+        <pubDate>Sun, 07 May 2017 00:00:00 +0800</pubDate>
+        <link>/post/%E6%9C%AA%E5%BD%92%E7%B1%BB/2017-05-07-%E7%AE%80%E6%98%8E%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.md</link>
+        <guid isPermaLink="true">/post/%E6%9C%AA%E5%BD%92%E7%B1%BB/2017-05-07-%E7%AE%80%E6%98%8E%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.md</guid>
+        
+        
+        <category>未归类</category>
+        
+      </item>
+    
+      <item>
+        <title>特殊字符使用说明</title>
+        <description>文件内容本身没有任何限制，但是因为利用了jekyll的限制，所以属于jekyll语法的写法不能直接写，需要特殊处理一下，如:
+ 
+
+```
+{% raw %}
+
+特殊字符 
+
+{% endraw %}
+```
+
+这样，便可以原样保持输出。
+
+如果需要设置meta元信息，请参考jekyll的官方写法去写:
+
+```
+---
+title: my title
+category: my tag
+tags: my tag
+---
+```</description>
+        <pubDate>Sat, 06 May 2017 00:00:00 +0800</pubDate>
+        <link>/post/%E6%9C%AA%E5%BD%92%E7%B1%BB/2017-05-06-%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md</link>
+        <guid isPermaLink="true">/post/%E6%9C%AA%E5%BD%92%E7%B1%BB/2017-05-06-%E7%89%B9%E6%AE%8A%E5%AD%97%E7%AC%A6%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md</guid>
+        
+        
+        <category>未归类</category>
+        
+      </item>
+    
+      <item>
+        <title>如何使用手机快速发布一篇blog</title>
+        <description>本文在手机上发布。
+
+
+接下来让我们一起看一下如何做到。
+
+App有两个: 一个是 Pocket Git, 用于管理git项目，一个是 Markdown Editors，用于在手机上编写markdown。
+
+![](https://static.dingtalk.com/media/lADPACOG8zdKl4DNB0HNBDU_1077_1857.jpg_300x300.jpg)
+
+
+步骤:
+
+1. clone 博客所在项目。
+
+![](https://static.dingtalk.com/media/lADPACOG8zdLCLvNBprNBDY_1078_1690.jpg_300x300.jpg)
+![](https://static.dingtalk.com/media/lADPACOG8zdLCLnNBqXNBDE_1073_1701.jpg_300x300.jpg)
+![](https://static.dingtalk.com/media/lADPACOG8zdLCLjNA_nNBDY_1078_1017.jpg_300x300.jpg)
+
+
+2. 进入`_posts`目录，新建一个md文件。
+
+3. 点击右上角菜单图标，选择 `Files` &gt; `New File`。
+4. 填写文件名，如: `2017-05-06-my-blog.md`。
+  
+ ![](https://static.dingtalk.com/media/lALPACOG8zdKBcPNB4DNBDg_1080_1920.png_300x300.jpg)
+
+5. 点击刚才新建的文件名，此时系统会弹出文件编辑器选择。
+
+![](https://static.dingtalk.com/media/lADPACOG8zdLCLfNA8jNBDA_1072_968.jpg_300x300.jpg)
+
+6. 选择`Markdown Editors`，使用`Markdown Editors`编辑markdown文件。
+![](https://static.dingtalk.com/media/lADPACOG8zdLCLbNAsbNBDg_1080_710.jpg_300x300.jpg)
+
+7. 完成后保存。
+
+8. 回到 `Pocket Git`，将刚才修改的文件进行`Commit`。
+9. 长按文件，按一下大拇指。
+10. 再次长按文件，按一下右下角悬浮球。
+11. 输入commit信息。
+
+![](https://static.dingtalk.com/media/lADPACOG8zdLCLXNA7bNBDg_1080_950.jpg_300x300.jpg)
+![](https://static.dingtalk.com/media/lADPACOG8zdLCLTNA8PNA6c_935_963.jpg_300x300.jpg)
+
+12. 点击云朵图标，选择Push，完成上传。
+![](https://static.dingtalk.com/media/lADPACOG8zdLCLLNAknNAko_586_585.jpg_300x300.jpg)
+
+13. 刷新博客，即可看到效果。
+
+到此，我们完成了所有的操作。
+
+总结：发布本身主要是对Git的操作及Pocket Git的使用熟练度。
+</description>
+        <pubDate>Sat, 06 May 2017 00:00:00 +0800</pubDate>
+        <link>/post/%E6%9C%AA%E5%BD%92%E7%B1%BB/2017-05-06-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E6%89%8B%E6%9C%BA%E5%BF%AB%E9%80%9F%E5%8F%91%E5%B8%83%E4%B8%80%E7%AF%87blog.md</link>
+        <guid isPermaLink="true">/post/%E6%9C%AA%E5%BD%92%E7%B1%BB/2017-05-06-%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E6%89%8B%E6%9C%BA%E5%BF%AB%E9%80%9F%E5%8F%91%E5%B8%83%E4%B8%80%E7%AF%87blog.md</guid>
+        
+        
+        <category>未归类</category>
+        
+      </item>
     
       <item>
         <title>Markdown语法参考</title>
@@ -532,55 +662,13 @@ emoji列表：http://www.emoji-cheat-sheet.com/
       </item>
     
       <item>
-        <title>使用说明</title>
-        <description>Kiss设计的初忠是简单易用（kiss原则），所以在实际使用中没有太多讲究，不过考虑到有些人可能对 jeylly 的机制不了解，所以在此提醒一下。
-
-Kiss完全是基于github jekyll的能力构建，但是其他纯jekyll的站点不一样的是，本系统并不利用其生成网页，而是只生成json数据。所以在UI定制上我们可以完全
-脱离jekyll的限制，使用任意自己熟悉的前端框架来搭建一个前后端分离的站点，当然，你也可以利用这个json数据来构建你的app甚至是微信小程序。
-
-在clone本项目之后，你所需要做的就是往`_posts`目录增加你的文章即可，一种省事的办法是直接在`github`上提交。本文就是直接在浏览器里完成。
-除了目录有要求外，文件名也必须按照`xxxx-xx-xx-title.md`的规则来写(`xxxx-xx-xx`表示年月日)。
-
-文件内容本身没有任何限制，但是因为利用了jekyll的限制，所以属于jekyll语法的写法不能直接写，需要特殊处理一下，如:
- 
-
-```
-{% raw %}
-
-特殊字符 
-
-{% endraw %}
-```
-
-这样，便可以原样保持输出。
-
-如果需要设置meta元信息，请参考jekyll的官方写法去写:
-
-```
----
-title: my title
-category: my tag
-tags: my tag
----
-```
-</description>
-        <pubDate>Sat, 22 Apr 2017 00:00:00 +0800</pubDate>
-        <link>/post/%E6%9C%AA%E5%BD%92%E7%B1%BB/2017-04-22-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md</link>
-        <guid isPermaLink="true">/post/%E6%9C%AA%E5%BD%92%E7%B1%BB/2017-04-22-%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E.md</guid>
-        
-        
-        <category>未归类</category>
-        
-      </item>
-    
-      <item>
-        <title>如何使用 git-pages 托管一个不用build的动态网站？</title>
+        <title>如何使用 git-pages 托管一个不用build的动态博客？</title>
         <description>如何使用 git-pages 托管一个不用build的动态网站？
 
 用过不少的开源搭建博客的网站，其中不乏功能很强大，样式很精美的。但是觉得发布一篇博客非得clone下来编译一下，再提交到github是一件令人很不舒服的事，而托管到第三方平台编译麻烦且不划算，于是便萌生了利用`gitpages`自身的编译能力，将md生成为json文件的想法。
 
 于是 **kiss** 诞生了，数据接口目前有以下两个:
-    * `/posts/:page/` 文章列表，默认20个一页，`:page`表示页码，第一页页不用加`:page`参数
+    * `/posts/:page/` 文章列表，默认20个一页，`:page`表示页码，第一页不用加`:page`参数
     * `/post/:url` 文章路径，路径可以在`/posts`列表里面获取到
 
 
@@ -611,8 +699,8 @@ tags: my tag
 
 </description>
         <pubDate>Sun, 09 Apr 2017 00:00:00 +0800</pubDate>
-        <link>/post/kiss/2017-04-09-how-to-build-a-website-not-need-build.md</link>
-        <guid isPermaLink="true">/post/kiss/2017-04-09-how-to-build-a-website-not-need-build.md</guid>
+        <link>/post/kiss/2017-04-09-%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E4%B8%8D%E7%94%A8Build%E7%9A%84%E5%8A%A8%E6%80%81%E5%8D%9A%E5%AE%A2.md</link>
+        <guid isPermaLink="true">/post/kiss/2017-04-09-%E5%A6%82%E4%BD%95%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E4%B8%8D%E7%94%A8Build%E7%9A%84%E5%8A%A8%E6%80%81%E5%8D%9A%E5%AE%A2.md</guid>
         
         <category>kiss</category>
         
