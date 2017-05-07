@@ -1,3 +1,6 @@
+#-------------------------------------------#
+# 基本设置
+
 name: 极简博客系统
 mail: lwdggm@gmail.com
 description: 极简博客系统
@@ -5,7 +8,12 @@ author: lwdgit
 github: https://github.com/lwdgit
 mail: lwdggm@gmail.com
 logo: https://avatars2.githubusercontent.com/u/5530205?v=3&s=20
+#-------------------------------------------#
 
+#-------------------------------------------#
+#数据源设置（用于实现数据源与框架分离）
+dataSource: .
+#-------------------------------------------#
 
 # Build settings
 
