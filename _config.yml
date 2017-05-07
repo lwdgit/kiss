@@ -26,7 +26,8 @@ permalink:     ./post/:categories/:year-:month-:day-:title:output_ext
 rss_path : ./feed.xml
 
 source:  .
-exclude: ["node_modules", "scripts", "vue"]
+include: ["_kiss"]
+exclude: ["node_modules", "scripts"]
 
 destination:      ./.site
 layouts_dir:      ./_layouts
