@@ -6,6 +6,8 @@ const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
+var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+
 const isProd = process.argv.slice(-1)[0] === '-p'
 
 isProd && rm('-rf', join(__dirname, './dist'))
@@ -27,7 +29,7 @@ module.exports = {
         enforce: 'pre',
         test: /\.js$/,
         loader: 'standard-loader',
-        exclude: /(node_modules|bower_components|js\/)/,
+        exclude: /(node_modules|bower_components|third_party|js\/)/,
         options: {
           // Emit errors instead of warnings (default = false)
           error: false,
@@ -71,6 +73,17 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      },
+      sourceMap: false
+    }),
+    new OptimizeCSSPlugin({
+      cssProcessorOptions: {
+        safe: true
+      }
+    }),
     new WebpackMd5Hash(),
     //new HtmlWebpackInlineSourcePlugin(),
     new ExtractTextPlugin({
@@ -99,10 +112,10 @@ module.exports = {
         // any required modules inside node_modules are extracted to vendor
         return (
           module.userRequest &&
-          /\.js$/.test(module.userRequest) &&
+          (/\.js$/.test(module.userRequest) &&
           module.userRequest.indexOf(
             join(__dirname, './node_modules')
-          ) === 0
+          ) === 0 || ~module.userRequest.indexOf('third_party'))
         )
       }
     }),
