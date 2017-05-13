@@ -1,1 +1,1 @@
-importScripts('./_kiss/src/sw/index.js')
+importScripts('./sw/cache.js')
