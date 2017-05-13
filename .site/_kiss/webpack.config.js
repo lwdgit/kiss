@@ -49,12 +49,12 @@ module.exports = {
         }, {
           loader: 'css-loader',
           options: {
-            sourceMap: true
+            sourceMap: false
           }
         }, {
           loader: 'less-loader',
           options: {
-            sourceMap: true
+            sourceMap: false
           }
         }, {
           loader: 'postcss-loader'
@@ -82,8 +82,7 @@ module.exports = {
     new OptimizeCSSPlugin({
       cssProcessorOptions: {
         safe: true
-      },
-      sourceMap: false
+      }
     }),
     new WebpackMd5Hash(),
     //new HtmlWebpackInlineSourcePlugin(),
