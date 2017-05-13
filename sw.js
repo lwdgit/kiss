@@ -1,0 +1,1 @@
+importScripts('./_kiss/src/sw/index.js')

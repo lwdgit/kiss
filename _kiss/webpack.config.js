@@ -29,7 +29,7 @@ module.exports = {
         enforce: 'pre',
         test: /\.js$/,
         loader: 'standard-loader',
-        exclude: /(node_modules|bower_components|third_party|js\/)/,
+        exclude: /\/(node_modules|bower_components|sw|third_party|js\/)/,
         options: {
           // Emit errors instead of warnings (default = false)
           error: false,

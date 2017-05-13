@@ -21,5 +21,14 @@
     </style>
 </head>
 <body>
+    <script>
+        if (window.location.protocol === 'https:' && 'serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./sw.js', {
+                scope: window.location.pathname
+            }).catch(e => {
+                console.log(e)
+            })
+        }
+    </script>
 </body>
 </html>
