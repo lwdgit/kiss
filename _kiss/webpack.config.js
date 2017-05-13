@@ -82,7 +82,8 @@ module.exports = {
     new OptimizeCSSPlugin({
       cssProcessorOptions: {
         safe: true
-      }
+      },
+      sourceMap: false
     }),
     new WebpackMd5Hash(),
     //new HtmlWebpackInlineSourcePlugin(),
