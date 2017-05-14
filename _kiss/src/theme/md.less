@@ -504,13 +504,13 @@
 .markdown-body h1 {
   padding-bottom: 0.3em;
   font-size: 2em;
-  border-bottom: 1px solid #eaecef;
+  border-bottom: 2px solid orange;
 }
 
 .markdown-body h2 {
   padding-bottom: 0.3em;
   font-size: 1.5em;
-  border-bottom: 1px solid #eaecef;
+  border-bottom: 2px solid orange;
 }
 
 .markdown-body h3 {
@@ -621,6 +621,7 @@
 
 .markdown-body pre {
   word-wrap: normal;
+  position: relative;
 }
 
 .markdown-body pre>code {
@@ -628,9 +629,9 @@
   margin: 0;
   font-size: 100%;
   word-break: normal;
-  white-space: pre;
   background: transparent;
   border: 0;
+  overflow: visible;
 }
 
 .markdown-body .highlight {
@@ -654,7 +655,7 @@
 
 .markdown-body pre code {
   display: inline;
-  max-width: auto;
+  max-width: 100%;
   padding: 0;
   margin: 0;
   overflow: visible;

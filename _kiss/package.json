@@ -1,10 +1,14 @@
 {
   "scripts": {
-    "start": "webpack-dev-server --content-base=../ --output-public-path=/mithril --hot --inline --watch",
-    "dev": "webpack -d -w",
-    "build": "webpack -p"
+    "start": "NODE_ENV=dev webpack-dev-server --config webpack.blocks.js",
+    "build": "NODE_ENV=prod webpack --config webpack.blocks.js -p"
   },
   "devDependencies": {
+    "@webpack-blocks/babel6": "^0.4.1",
+    "@webpack-blocks/dev-server2": "^0.4.0",
+    "@webpack-blocks/postcss": "^0.4.3",
+    "@webpack-blocks/webpack2": "^0.4.0",
+    "autoprefixer": "^7.0.1",
     "babel-core": "^6.24.1",
     "babel-loader": "^6.4.1",
     "babel-plugin-transform-react-jsx": "^6.24.1",
@@ -28,7 +32,7 @@
     "style-loader": "^0.16.1",
     "url-loader": "^0.5.8",
     "webpack": "^2.4.1",
-    "webpack-dev-server": "^2.4.4",
+    "webpack-dev-server": "^2.4.5",
     "webpack-md5-hash": "0.0.5"
   },
   "dependencies": {
