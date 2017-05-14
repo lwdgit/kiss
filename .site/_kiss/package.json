@@ -6,6 +6,7 @@
   "devDependencies": {
     "@webpack-blocks/babel6": "^0.4.1",
     "@webpack-blocks/dev-server2": "^0.4.0",
+    "@webpack-blocks/extract-text2": "^0.4.0",
     "@webpack-blocks/postcss": "^0.4.3",
     "@webpack-blocks/webpack2": "^0.4.0",
     "autoprefixer": "^7.0.1",

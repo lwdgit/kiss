@@ -23,6 +23,13 @@
     webpack "^2.2.0"
     webpack-dev-server "^2.2.0"
 
+"@webpack-blocks/extract-text2@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.npmjs.org/@webpack-blocks/extract-text2/-/extract-text2-0.4.0.tgz#99e100abb1f789c5c91c0c2dbad5fa3aa8d15a8a"
+  dependencies:
+    "@webpack-blocks/webpack-common" "^0.4.0"
+    extract-text-webpack-plugin "^2.0.0-rc.0"
+
 "@webpack-blocks/postcss@^0.4.3":
   version "0.4.3"
   resolved "https://registry.npmjs.org/@webpack-blocks/postcss/-/postcss-0.4.3.tgz#1690d894cd0882cd688d5ea9c8ad2ecec828acd2"
@@ -1974,7 +1981,7 @@ extglob@^0.3.1:
   dependencies:
     is-extglob "^1.0.0"
 
-extract-text-webpack-plugin@^2.1.0:
+extract-text-webpack-plugin@^2.0.0-rc.0, extract-text-webpack-plugin@^2.1.0:
   version "2.1.0"
   resolved "https://registry.npmjs.org/extract-text-webpack-plugin/-/extract-text-webpack-plugin-2.1.0.tgz#69315b885f876dbf96d3819f6a9f1cca7aebf159"
   dependencies:

@@ -5,10 +5,8 @@
   "main": "index.js",
   "devDependencies": {
     "co": "^4.6.0",
-    "html-webpack-inline-source-plugin": "0.0.8",
     "open": "0.0.5",
-    "pre-commit": "^1.2.2",
-    "webpack-md5-hash": "0.0.5"
+    "pre-commit": "^1.2.2"
   },
   "scripts": {
     "test": "echo 'nothing'",
