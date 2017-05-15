@@ -18,6 +18,9 @@ const meta = (function () {
 
 const domain = window.location.hostname === '127.0.0.1' ? './.site' : ~meta.base.indexOf('{{') ? './data' : meta.base
 
+let firstLanuch = true
+let needBackToHome = true
+
 const Layout = function (category, content, title) {
   return m('.container', [
     Header(category, title),
@@ -29,13 +32,30 @@ const Layout = function (category, content, title) {
 let showMenu = false
 const Header = (category, title = (meta.title || '极简博客')) => {
   document.title = title
+  if (firstLanuch && category === 'post') {
+    needBackToHome = true
+    firstLanuch = false
+  }
+  
   return m('header', [
     m('nav.navigation', [
-      m('.menu.kissfont .kiss-menu', {
-        onclick: () => { showMenu = true }
+      m('.menu.kissfont', {
+        class: category === 'post' ? 'kiss-arrow-back' : 'kiss-menu',
+        onclick: () => { 
+          if (category === 'post') {
+            history.back()
+          } else {
+            showMenu = true 
+          }
+        }
       }),
       m('.title', title),
-      m('label.wrap', { class: showMenu && 'show', onclick: () => { showMenu = false } }, m('aside', [
+      m('label.wrap', {
+        class: showMenu && 'show', 
+        onclick: () => {
+          showMenu = false 
+        }
+      }, m('aside', [
         m('.header', [
           m('img', { src: meta.logo })
         ]),
@@ -93,12 +113,12 @@ const Post = {
 
 const Posts = {
   posts: [],
-  next: domain + '/page/',
+  next: '/page/',
   loading: true,
   getData: function () {
     this.loading = true
     if (!this.next) return
-    m.request(this.next, {mode: 'no-cors'})
+    m.request(domain + this.next, {mode: 'no-cors'})
     .then((ret) => {
       this.posts = ret.posts
       this.next = ret.next
