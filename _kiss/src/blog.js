@@ -120,7 +120,7 @@ const Posts = {
     if (!this.next) return
     m.request(domain + this.next, {mode: 'no-cors'})
     .then((ret) => {
-      this.posts = ret.posts
+      this.posts = [...this.posts, ...ret.posts]
       this.next = ret.next
       this.loading = false
     })
