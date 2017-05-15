@@ -33,9 +33,18 @@ const less = function (options) {
 }
 
 const httpd = require('./httpd')
+var htmlConfig = {
+  inject: true,
+  filename: '../app.html',
+  template: './src/template.html'
+}
 const isDev = process.env['NODE_ENV'] === 'dev'
 if (isDev) {
   httpd.run('8778', '../')
+  htmlConfig = {
+    inject: true,
+    title: '极简博客'
+  }
 } else {
   rm('-rf', './build')
 }
@@ -44,7 +53,7 @@ module.exports = createConfig([
   entryPoint('./src/blog.js'),
   setOutput({
     filename: './build/[name].[hash:8].js',
-    publicPath: '/_kiss/'
+    publicPath: isDev ? undefined : '/_kiss/'
   }),
   babel(),
   less({
@@ -52,11 +61,7 @@ module.exports = createConfig([
   }),
   // extractText('./build/css/[name].[hash:8].css', 'text/x-less'),
   addPlugins([
-    new HtmlWebpackPlugin({
-      inject: true,
-      filename: isDev ? 'index.html' : '../app.html',
-      template: './src/template.html'
-    }),
+    new HtmlWebpackPlugin(htmlConfig),
     new ScriptExtHtmlWebpackPlugin({
       defaultAttribute: 'async'
     })

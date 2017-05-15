@@ -67,13 +67,13 @@ const Footer = m('footer', [
 const Post = {
   inited: false,
   post: {},
-  oninit: function (vnode, id) {
+  oninit (vnode, id) {
     m.request(domain + '/' + (!id ? 'post/' + vnode.attrs.category + '/' + vnode.attrs.id : vnode))
     .then(function (ret) {
       Post.post = ret
     })
   },
-  view: function () {
+  view () {
     return Layout('post', [
       m('banner', [
         m('h3', m('.title', this.post.title))
@@ -93,16 +93,37 @@ const Post = {
 
 const Posts = {
   posts: [],
+  next: domain + '/page/',
+  loading: true,
   getData: function () {
-    m.request(domain + '/page/', {mode: 'no-cors'}).then(function (ret) {
-      Posts.posts = ret.posts
+    this.loading = true
+    if (!this.next) return
+    m.request(this.next, {mode: 'no-cors'})
+    .then((ret) => {
+      this.posts = ret.posts
+      this.next = ret.next
+      this.loading = false
     })
   },
-  oninit: function () {
-    this.getData()
+  onscrollEnd () {
+    let container;
+    window.addEventListener('scroll', (e) => {
+      if (this.loading) return
+      container = container || document.querySelector('.posts')
+      if (!container) {
+        return
+      }
+      if (container.clientHeight + container.scrollTop > container.scrollHeight - 10) {
+        this.getData()
+      }
+    })
   },
-  view: function (vnode) {
-    return Layout('posts', this.posts.map(function (item) {
+  oninit () {
+    this.getData()
+    this.onscrollEnd()
+  },
+  view (vnode) {
+    const posts = this.posts.map(function (item) {
       return m('.cell', {
         'data-url': item.url
       }, [
@@ -120,7 +141,20 @@ const Posts = {
           m('span.category', item.category)
         ])
       ])
-    }))
+    });
+    
+    posts.push(
+      m('.indicator', { style: { 
+          display: this.next ? '' : 'none' 
+        } 
+      }, m.trust(`
+        <svg viewBox="0 0 32 32" width="32" height="32">
+          <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+        </svg>
+      `))
+    )
+    
+    return Layout('posts', posts)
   }
 }
 
