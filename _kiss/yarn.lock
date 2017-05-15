@@ -4121,6 +4121,12 @@ sax@~1.2.1:
   version "1.2.2"
   resolved "https://registry.npmjs.org/sax/-/sax-1.2.2.tgz#fd8631a23bc7826bef5d871bdb87378c95647828"
 
+script-ext-html-webpack-plugin@^1.7.4:
+  version "1.8.0"
+  resolved "https://registry.npmjs.org/script-ext-html-webpack-plugin/-/script-ext-html-webpack-plugin-1.8.0.tgz#0b9e9aec8c78bcd9cefbc5f6e21d2be7a15735cd"
+  dependencies:
+    debug "^2.6.3"
+
 select-hose@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/select-hose/-/select-hose-2.0.0.tgz#625d8658f865af43ec962bfc376a37359a4994ca"

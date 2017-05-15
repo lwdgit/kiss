@@ -57,7 +57,7 @@ const Header = (category, title = (meta.title || '极简博客')) => {
 }
 
 const Footer = m('footer', [
-  m('.copy-right', '© 2017 kiss blog'),
+  m('a.copy-right', { href: 'https://github.com/lwdgit/kiss' }, '© 2017 Kiss Blog'),
   m('.links', [
     m('a', { href: meta.github }, 'Github'),
     m('a', { href: 'mailto:' + meta.mail + '?subject=Hello world' }, 'Mail')
@@ -147,7 +147,7 @@ m.route(document.body, '/', {
   },
   '/projects': {
     oninit () {
-      window.location.href = 'https://github.com/lwdgit?utf8=%E2%9C%93&tab=repositories&q=&type=source&language='
+      window.location.href = meta.github + '?utf8=%E2%9C%93&tab=repositories&q=&type=source&language='
     },
     view () {}
   },

@@ -3,8 +3,12 @@ const babel = require('@webpack-blocks/babel6')
 const extractText = require('@webpack-blocks/extract-text2')
 const devServer = require('@webpack-blocks/dev-server2')
 const postcss = require('@webpack-blocks/postcss')
+const autoprefixer = require('autoprefixer')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
+
 const { rm } = require('shelljs')
-rm('-rf', './build')
+
 
 const less = function (options) {
   'use strict'
@@ -28,12 +32,12 @@ const less = function (options) {
   })
 }
 
-const autoprefixer = require('autoprefixer')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const httpd = require('./httpd')
 const isDev = process.env['NODE_ENV'] === 'dev'
 if (isDev) {
   httpd.run('8778', '../')
+} else {
+  rm('-rf', './build')
 }
 
 module.exports = createConfig([
@@ -47,11 +51,16 @@ module.exports = createConfig([
     relativeUrls: true
   }),
   // extractText('./build/css/[name].[hash:8].css', 'text/x-less'),
-  addPlugins([new HtmlWebpackPlugin({
-    inject: true,
-    filename: isDev ? 'index.html' : '../app.html',
-    template: './src/template.html'
-  })]),
+  addPlugins([
+    new HtmlWebpackPlugin({
+      inject: true,
+      filename: isDev ? 'index.html' : '../app.html',
+      template: './src/template.html'
+    }),
+    new ScriptExtHtmlWebpackPlugin({
+      defaultAttribute: 'async'
+    })
+  ]),
   postcss([
     autoprefixer({ browsers: ['last 2 versions'] })
   ]),
