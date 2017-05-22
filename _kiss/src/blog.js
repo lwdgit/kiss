@@ -16,7 +16,7 @@ const meta = (function () {
   return _meta
 }())
 
-const domain = window.location.hostname !== 'localhost' ? 'https://lwdgit.github.io/blog/' : ~(meta.base || '').indexOf('{{') ? './data' : meta.base
+const domain = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'https://lwdgit.github.io/blog/' : ~(meta.base || '').indexOf('{{') ? './data' : meta.base
 
 let firstLanuch = true
 const Layout = function (category, content, title, index) {
