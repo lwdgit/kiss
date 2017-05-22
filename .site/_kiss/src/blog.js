@@ -236,7 +236,7 @@ m.route(document.body, '/', {
   '/': Posts,
   '/post/:category/:id': {
     onmatch (attrs) {
-      requestPost(attrs).then(m.redraw)
+      requestPost(attrs)
     },
     render (vnode) {
       return m(Post)
