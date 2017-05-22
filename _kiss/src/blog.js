@@ -92,9 +92,11 @@ const Header = (category, title = (meta.title || '极简博客'), index = 0) => 
 }
 
 const Footer = m('footer', [
-  m('a.copy-right', {
-    href: 'https://github.com/lwdgit/kiss'
-  }, '© 2017 Kiss Blog'),
+  m('.links.left', [
+    m('a.copy-right', {
+      href: 'https://github.com/lwdgit/kiss'
+    }, '© 2017 Kiss Blog')
+  ]),
   m('.links', [
     m('a', {
       href: meta.github
@@ -242,47 +244,6 @@ let PageList = [{
   component: Posts,
   attrs: {}
 }]
-
-const navigateTo = function (component, index = 0) {
-  let deepth = 0
-  return {
-    onmatch (attrs) {
-      if (isBack) {
-        deepth--
-        isBack = false
-      } else {
-        deepth += index
-      }
-
-      deepth = Math.max(0, deepth)
-      PageList[deepth] = {
-        component,
-        attrs
-      }
-      PageList = PageList.slice(0, deepth + 1)
-      return component
-    },
-    render (vnode) {
-      const style = {
-        width: 100 * (deepth + 1) + 'vw',
-        '-webkit-transform': `translate3D(-${100 * deepth}vw, 0, 0)`,
-        transform: `translateX(-${100 * deepth}vw, 0, 0)`
-      }
-      return m('.page-list', {style: style}, PageList.map(c => m(c.component, c.attrs)))
-    }
-  }
-}
-
-const goto = function (component) {
-  return {
-    onmatch () {
-      return component
-    },
-    render (vnode) {
-      return m(component, vnode.attrs)
-    }
-  }
-}
 
 m.route(document.body, '/', {
   '/': Posts,
