@@ -7,13 +7,16 @@ description: 极简博客系统
 author: lwdgit
 github: https://github.com/lwdgit
 mail: lwdggm@gmail.com
-logo: https://avatars2.githubusercontent.com/u/5530205?v=3&s=20
+logo: https://avatars2.githubusercontent.com/u/5530205?v=3&s=192 #注：logo大小不要小于144px
+
 #-------------------------------------------#
 
 #-------------------------------------------#
 #数据源设置（用于实现数据源与框架分离）
-dataSource: .
+dataSource: . 
 #-------------------------------------------#
+
+
 
 # Build settings
 
