@@ -38,12 +38,13 @@ var htmlConfig = {
   filename: '../app.html',
   template: './src/template.html'
 }
+
 const isDev = process.env['NODE_ENV'] === 'dev'
 if (isDev) {
   httpd.run('8778', '../')
   htmlConfig = {
     inject: true,
-    title: '极简博客'
+    template: './src/template.dev.html'
   }
 } else {
   rm('-rf', './build')
@@ -73,7 +74,11 @@ module.exports = createConfig([
     'process.env.NODE_ENV': process.env.NODE_ENV
   }),
   env('dev', [
-    devServer(),
+    devServer({
+      disableHostCheck: true,
+      host: '0.0.0.0',
+      port: 8080
+    }),
     devServer.proxy({
       '/.site/': { target: 'http://localhost:8778/', host: 'localhost' }
     }),

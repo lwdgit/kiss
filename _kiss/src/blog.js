@@ -16,58 +16,73 @@ const meta = (function () {
   return _meta
 }())
 
-const domain = window.location.hostname === '127.0.0.1' ? './.site' : ~meta.base.indexOf('{{') ? './data' : meta.base
+const domain = window.location.hostname !== 'localhost' ? 'https://lwdgit.github.io/blog/' : ~(meta.base || '').indexOf('{{') ? './data' : meta.base
 
 let firstLanuch = true
-let needBackToHome = true
-
-const Layout = function (category, content, title) {
-  return m('.container', [
-    Header(category, title),
+const Layout = function (category, content, title, index) {
+  return m('.page', [
+    Header(category, title, index),
     m('main.' + category, content),
     Footer
   ])
 }
 
 let showMenu = false
-const Header = (category, title = (meta.title || '极简博客')) => {
+let isBack = false
+
+window.addEventListener('popstate', function () {
+  isBack = true
+})
+
+const Header = (category, title = (meta.title || '极简博客'), index = 0) => {
   document.title = title
   if (firstLanuch && category === 'post') {
-    needBackToHome = true
     firstLanuch = false
   }
-  
+
   return m('header', [
     m('nav.navigation', [
       m('.menu.kissfont', {
-        class: category === 'post' ? 'kiss-arrow-back' : 'kiss-menu',
-        onclick: () => { 
-          if (category === 'post') {
-            history.back()
+        class: index === 0 ? 'kiss-menu' : 'kiss-arrow-back',
+        onclick: () => {
+          if (index === 0) {
+            showMenu = true
           } else {
-            showMenu = true 
+            window.history.back()
           }
         }
       }),
       m('.title', title),
       m('label.wrap', {
-        class: showMenu && 'show', 
+        class: showMenu && 'show',
         onclick: () => {
-          showMenu = false 
+          showMenu = false
         }
       }, m('aside', [
         m('.header', [
           m('img', { src: meta.logo })
         ]),
-        m('a', { href: '/', oncreate: m.route.link, class: category === 'posts' && 'active' }, [
+        m('a', {
+          href: '/',
+          oncreate: m.route.link,
+          class: category === 'posts' && 'active'
+        }, [
           m('i.kissfont.kiss-home'),
           '首页'
         ]),
-        m('a', { href: '/projects', oncreate: m.route.link, class: category === 'project' && 'active' }, [
+        m('a', {
+          href: '/projects',
+          oncreate: m.route.link,
+          class: category === 'project' && 'active'
+        }, [
           m('i.kissfont.kiss-project'),
           '项目'
         ]),
-        m('a', { href: '/about', oncreate: m.route.link, class: category === 'about' && 'active' }, [
+        m('a', {
+          href: '/about',
+          oncreate: m.route.link,
+          class: category === 'about' && 'active'
+        }, [
           m('i.kissfont.kiss-about'),
           '关于'
         ])
@@ -77,23 +92,35 @@ const Header = (category, title = (meta.title || '极简博客')) => {
 }
 
 const Footer = m('footer', [
-  m('a.copy-right', { href: 'https://github.com/lwdgit/kiss' }, '© 2017 Kiss Blog'),
+  m('a.copy-right', {
+    href: 'https://github.com/lwdgit/kiss'
+  }, '© 2017 Kiss Blog'),
   m('.links', [
-    m('a', { href: meta.github }, 'Github'),
-    m('a', { href: 'mailto:' + meta.mail + '?subject=Hello world' }, 'Mail')
+    m('a', {
+      href: meta.github
+    }, 'Github'),
+    m('a', {
+      href: 'mailto:' + meta.mail + '?subject=Hello world'
+    }, 'Mail')
   ])
 ])
 
 const Post = {
   inited: false,
   post: {},
-  oninit (vnode, id) {
-    m.request(domain + '/' + (!id ? 'post/' + vnode.attrs.category + '/' + vnode.attrs.id : vnode))
+  oninit: function (vnode, id) {
+    m.request(domain + '/post/' + vnode.attrs.category + '/' + vnode.attrs.id)
     .then(function (ret) {
       Post.post = ret
     })
   },
-  view () {
+  onupdate (vnode) {
+    m.request(domain + '/post/' + vnode.attrs.category + '/' + vnode.attrs.id)
+    .then(function (ret) {
+      Post.post = ret
+    })
+  },
+  view (vnode) {
     return Layout('post', [
       m('banner', [
         m('h3', m('.title', this.post.title))
@@ -104,10 +131,16 @@ const Post = {
       ]),
       m('article.markdown-body', m.trust(md(this.post.content || ''))),
       m('nav', [
-        this.post.prev ? m('a', {href: '#!/' + this.post.prev.url, onclick: this.oninit.bind(null, this.post.prev.url)}, '上一篇:' + this.post.prev.title) : null,
-        this.post.next ? m('a', {href: '#!/' + this.post.next.url, onclick: this.oninit.bind(null, this.post.next.url)}, '下一篇:' + this.post.next.title) : null
+        this.post.prev ? m('a', {
+          href: '/' + this.post.prev.url,
+          oncreate: m.route.link
+        }, '上一篇:' + this.post.prev.title) : null,
+        this.post.next ? m('a', {
+          href: '/' + this.post.next.url,
+          oncreate: m.route.link
+        }, '下一篇:' + this.post.next.title) : null
       ])
-    ], this.post.title)
+    ], this.post.title, 1)
   }
 }
 
@@ -126,7 +159,7 @@ const Posts = {
     })
   },
   onscrollEnd () {
-    let container;
+    let container
     window.addEventListener('scroll', (e) => {
       if (this.loading) return
       container = container || document.querySelector('.posts')
@@ -136,6 +169,7 @@ const Posts = {
       if (container.clientHeight + container.scrollTop > container.scrollHeight - 10) {
         this.getData()
       }
+      document.body.scrollTop = 0
     })
   },
   oninit () {
@@ -161,54 +195,98 @@ const Posts = {
           m('span.category', item.category)
         ])
       ])
-    });
-    
+    })
+
     posts.push(
-      m('.indicator', { style: { 
-          display: this.next ? '' : 'none' 
-        } 
+      m('.indicator', {
+        style: {
+          display: this.next ? '' : 'none'
+        }
       }, m.trust(`
         <svg viewBox="0 0 32 32" width="32" height="32">
           <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
         </svg>
       `))
     )
-    
     return Layout('posts', posts)
+  }
+}
+
+const About = {
+  about: null,
+  oninit () {
+    const self = this
+    m.request({
+      url: domain + '/about.md',
+      deserialize: ret => ret
+    })
+    .then(function (ret) {
+      self.about = md(ret)
+    })
+  },
+  view () {
+    return Layout('about',
+      m('.about.markdown-body', m.trust(this.about))
+    )
+  }
+}
+
+const Projects = {
+  oninit () {
+    window.location.href = meta.github + '?utf8=%E2%9C%93&tab=repositories&q=&type=source&language='
+  },
+  view () {}
+}
+
+let PageList = [{
+  component: Posts,
+  attrs: {}
+}]
+
+const navigateTo = function (component, index = 0) {
+  let deepth = 0
+  return {
+    onmatch (attrs) {
+      if (isBack) {
+        deepth--
+        isBack = false
+      } else {
+        deepth += index
+      }
+
+      deepth = Math.max(0, deepth)
+      PageList[deepth] = {
+        component,
+        attrs
+      }
+      PageList = PageList.slice(0, deepth + 1)
+      return component
+    },
+    render (vnode) {
+      const style = {
+        width: 100 * (deepth + 1) + 'vw',
+        '-webkit-transform': `translate3D(-${100 * deepth}vw, 0, 0)`,
+        transform: `translateX(-${100 * deepth}vw, 0, 0)`
+      }
+      return m('.page-list', {style: style}, PageList.map(c => m(c.component, c.attrs)))
+    }
+  }
+}
+
+const goto = function (component) {
+  return {
+    onmatch () {
+      return component
+    },
+    render (vnode) {
+      return m(component, vnode.attrs)
+    }
   }
 }
 
 m.route(document.body, '/', {
   '/': Posts,
   '/post/:category/:id': Post,
-  '/about': {
-    about: null,
-    oninit () {
-      const self = this
-      m.request({
-        url: domain + '/about.md',
-        deserialize: ret => ret
-      })
-      .then(function (ret) {
-        self.about = md(ret)
-      })
-    },
-    view () {
-      return Layout('about',
-        m('.about.markdown-body', m.trust(this.about))
-      )
-    }
-  },
-  '/projects': {
-    oninit () {
-      window.location.href = meta.github + '?utf8=%E2%9C%93&tab=repositories&q=&type=source&language='
-    },
-    view () {}
-  },
-  '/slides': {
-    oninit () {},
-    view () {
-      return Layout('This is undefined')
-    }
-  }
+  '/about': About,
+  '/projects': Projects
 })

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>夜的第七章</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="theme-color" content="#41a5b6">
+    <link rel="manifest" href="manifest.json">
+    <meta name="description" content="夜的第七章" />
+    <meta name="author" content="lwdgit"/>
+    <meta name="mail" content="lwdggm@gmail.com" />
+    <meta name="logo" content="https://avatars2.githubusercontent.com/u/5530205?v=3&s=192" />
+    <meta name="github" content="https://github.com/lwdgit" />
+    <meta name="base" content="blog" />
+    <link rel="icon" href="https://avatars2.githubusercontent.com/u/5530205?v=3&s=192" />
+    <style>
+        header, main, footer {
+            opacity: 0;
+            -webkit-transition: opacity 0.3s ease-in 0.5s;
+            -moz-transition: opacity 0.3s ease-in 0.5s;
+            transition: opacity 0.3s ease-in 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <noscript>检测到你的浏览器禁用了JavaScript，请将此功能打开后重新访问。</noscript>
+    <script>
+        if (window.location.protocol === 'https:' && 'serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./sw.js', {
+                scope: window.location.pathname
+            }).catch(e => {
+                console.log(e)
+            })
+        }
+    </script>
+</body>
+</html>
