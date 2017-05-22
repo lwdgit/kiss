@@ -27,12 +27,10 @@ const Layout = function (category, content, title, index) {
   ])
 }
 
-let showMenu = false
-let isBack = false
-
-window.addEventListener('popstate', function () {
-  isBack = true
-})
+const store = {
+  showMenu: false,
+  post: {}
+}
 
 const Header = (category, title = (meta.title || '极简博客'), index = 0) => {
   document.title = title
@@ -44,9 +42,9 @@ const Header = (category, title = (meta.title || '极简博客'), index = 0) => 
     m('nav.navigation', [
       m('.menu.kissfont', {
         class: index === 0 ? 'kiss-menu' : 'kiss-arrow-back',
-        onclick: () => {
+        onclick: (e) => {
           if (index === 0) {
-            showMenu = true
+            store.showMenu = true
           } else {
             window.history.back()
           }
@@ -54,9 +52,9 @@ const Header = (category, title = (meta.title || '极简博客'), index = 0) => 
       }),
       m('.title', title),
       m('label.wrap', {
-        class: showMenu && 'show',
+        class: store.showMenu && 'show',
         onclick: () => {
-          showMenu = false
+          store.showMenu = false
         }
       }, m('aside', [
         m('.header', [
@@ -107,42 +105,36 @@ const Footer = m('footer', [
   ])
 ])
 
+const requestPost = function (attrs) {
+  return m.request(domain + '/post/' + attrs.category + '/' + attrs.id)
+  .then(ret => {
+    store.post = ret
+  })
+}
+
 const Post = {
   inited: false,
-  post: {},
-  oninit: function (vnode, id) {
-    m.request(domain + '/post/' + vnode.attrs.category + '/' + vnode.attrs.id)
-    .then(function (ret) {
-      Post.post = ret
-    })
-  },
-  onupdate (vnode) {
-    m.request(domain + '/post/' + vnode.attrs.category + '/' + vnode.attrs.id)
-    .then(function (ret) {
-      Post.post = ret
-    })
-  },
   view (vnode) {
     return Layout('post', [
       m('banner', [
-        m('h3', m('.title', this.post.title))
+        m('h3', m('.title', store.post.title))
       ]),
       m('.meta', [
-        m('span.date', this.post.date),
-        m('span.category', this.post.category)
+        m('span.date', store.post.date),
+        m('span.category', store.post.category)
       ]),
-      m('article.markdown-body', m.trust(md(this.post.content || ''))),
+      m('article.markdown-body', m.trust(md(store.post.content || ''))),
       m('nav', [
-        this.post.prev ? m('a', {
-          href: '/' + this.post.prev.url,
+        store.post.prev ? m('a', {
+          href: '/' + store.post.prev.url,
           oncreate: m.route.link
-        }, '上一篇:' + this.post.prev.title) : null,
-        this.post.next ? m('a', {
-          href: '/' + this.post.next.url,
+        }, '上一篇:' + store.post.prev.title) : null,
+        store.post.next ? m('a', {
+          href: '/' + store.post.next.url,
           oncreate: m.route.link
-        }, '下一篇:' + this.post.next.title) : null
+        }, '下一篇:' + store.post.next.title) : null
       ])
-    ], this.post.title, 1)
+    ], store.post.title, 1)
   }
 }
 
@@ -240,14 +232,16 @@ const Projects = {
   view () {}
 }
 
-let PageList = [{
-  component: Posts,
-  attrs: {}
-}]
-
 m.route(document.body, '/', {
   '/': Posts,
-  '/post/:category/:id': Post,
+  '/post/:category/:id': {
+    onmatch (attrs) {
+      requestPost(attrs).then(m.redraw)
+    },
+    render (vnode) {
+      return m(Post)
+    }
+  },
   '/about': About,
   '/projects': Projects
 })
