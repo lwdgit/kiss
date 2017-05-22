@@ -5,6 +5,7 @@
   "main": "index.js",
   "devDependencies": {
     "co": "^4.6.0",
+    "lerna": "^2.0.0",
     "open": "0.0.5",
     "pre-commit": "^1.2.2"
   },
@@ -14,14 +15,16 @@
     "add": "git add -A",
     "install": "bundler install",
     "jekyll": "bundler exec jekyll serve --verbose",
-    "start": "bundler exec jekyll build && cd _kiss && yarn install && yarn start",
+    "build:jekyll": "bundler exec jekyll build",
+    "build:admin": "cd packages/admin && npm run build && mv docs/ ../../admin && cd ../..",
+    "build:blog": "cd packages/blog && npm run build && cd ../..",
+    "build:all": "npm run build:blog && npm run build:admin",
     "open": "open",
-    "postinstall": "node ./scripts/install.js",
-    "build": "cd _kiss && yarn install && yarn run build && cd .. && bundler exec jekyll build"
+    "postinstall": "node ./scripts/install.js"
   },
   "pre-commit": {
     "run": [
-      "build",
+      "build:all",
       "test",
       "add"
     ],

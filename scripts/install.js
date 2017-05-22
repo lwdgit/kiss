@@ -25,7 +25,7 @@ const runner = function (command) {
 }
 
 function * install () {
-  if (!~execSync('bundler -v').toString().indexOf('version')) {
+  if (~execSync('which bundler').toString().indexOf('not found')) {
     yield runner('gem install bundler')
   }
   if (!fs.existsSync('Gemfile.lock')) {
