@@ -54,7 +54,7 @@ module.exports = createConfig([
   entryPoint('./src/blog.js'),
   setOutput({
     filename: './build/[name].[hash:8].js',
-    publicPath: isDev ? undefined : '/_kiss/'
+    publicPath: isDev ? undefined : './_kiss/'
   }),
   babel(),
   less({
