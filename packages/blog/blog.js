@@ -88,16 +88,16 @@ const Header = (category, title = (meta.title || '极简博客'), index = 0) => 
 
 const links = []
 if (meta.github) {
-  meta.push(m('a', {
+  links.push(m('a', {
       href: meta.github
   }, 'Github'))
 }
 if (meta.mail) {
-  meta.push(m('a', {
+  links.push(m('a', {
     href: 'mailto:' + meta.mail + '?subject=Hello world'
   }, 'Mail'))
 }
-meta.push(m('a', {
+links.push(m('a', {
   href: './admin'
 }, '登录'))
 
