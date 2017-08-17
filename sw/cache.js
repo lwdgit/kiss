@@ -44,6 +44,7 @@ toolbox.router.default = toolbox.networkFirst;
 toolbox.options.networkTimeoutSeconds = 0.8;
 toolbox.options.successResponses = /^200$/;
 toolbox.router.get(/.*\.(js|gif|png|svg|jpg|css)$/, toolbox.cacheFirst);
+toolbox.router.get('/repos/*', toolbox.networkOnly);
 
 // Claim all clients and delete old caches that are no longer needed.
 self.addEventListener('activate', event => {
