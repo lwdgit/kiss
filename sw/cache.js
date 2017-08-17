@@ -41,6 +41,8 @@ const PWA_LIST_OPTION = {
 
 toolbox.options.cache.name = CACHE_NAME;
 toolbox.router.default = toolbox.networkFirst;
+toolbox.options.networkTimeoutSeconds = 0.8;
+toolbox.options.successResponses = /^200$/;
 toolbox.router.get(/.*\.(js|gif|png|svg|jpg|css)$/, toolbox.cacheFirst);
 
 // Claim all clients and delete old caches that are no longer needed.
