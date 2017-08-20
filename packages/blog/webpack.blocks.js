@@ -50,7 +50,7 @@ if (isDev) {
 module.exports = createConfig([
   entryPoint('./blog.js'),
   setOutput({
-    filename: '../../assets/[name].[hash:8].js',
+    filename: isDev ? 'assets/[name].[hash:8].js' : '../../assets/[name].[hash:8].js',
     publicPath: isDev ? undefined : './assets/assets/'
   }),
   babel(),
@@ -73,7 +73,7 @@ module.exports = createConfig([
   env('dev', [
     devServer({
       disableHostCheck: true,
-      host: '0.0.0.0',
+      host: '127.0.0.1',
       port: 8080
     }),
     sourceMaps()

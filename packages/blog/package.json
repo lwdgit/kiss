@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "NODE_ENV=dev webpack-dev-server --config webpack.blocks.js",
+    "dev": "NODE_ENV=dev webpack-dev-server --config webpack.blocks.js",
     "build": "NODE_ENV=prod webpack --config webpack.blocks.js -p"
   },
   "devDependencies": {

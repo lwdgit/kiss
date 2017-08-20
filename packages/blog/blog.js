@@ -69,17 +69,18 @@ const Header = (category, title = (meta.title || '极简博客'), index = 0) => 
           '首页'
         ]),
         m('a', {
-          href: '/projects',
-          oncreate: m.route.link,
-          class: category === 'project' && 'active'
-        }),
-        m('a', {
           href: '/about',
           oncreate: m.route.link,
           class: category === 'about' && 'active'
         }, [
           m('i.kissfont.kiss-about'),
           '关于'
+        ]),
+        m('a', {
+          href: './admin'
+        }, [
+          m('i.kissfont.kiss-menu'),
+          '管理'
         ])
       ]))
     ])
