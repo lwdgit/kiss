@@ -1,13 +1,13 @@
 #-------------------------------------------#
 # 基本设置
 
-name: 极简博客系统
+title: 极简博客系统
 mail: lwdggm@gmail.com
 description: 极简博客系统
 author: lwdgit
 github: https://github.com/lwdgit
 mail: lwdggm@gmail.com
-logo: https://avatars2.githubusercontent.com/u/5530205?v=3&s=192 #注：logo大小不要小于144px
+logo: https://avatars2.githubusercontent.com/u/5530205?v=3
 
 #-------------------------------------------#
 
@@ -59,34 +59,3 @@ defaults:
       layout: "posts"
       comments: false
       category: "未归类"
-
-  - scope:
-      path: "_articles" # an empty string here means all files in the project
-      type: "articles" # previously `post` in Jekyll 2.2.
-    values:
-      layout: "articles"
-      comments: false
-      category: "未归类"
-
-  - scope:
-      path: "_projects" # an empty string here means all files in the project
-      type: "projects" # previously `post` in Jekyll 2.2.
-    values:
-      layout: "projects"
-      comments: false
-      category: "未归类"
-
-  - scope:
-      path: "_essays" # an empty string here means all files in the project
-      type: "essays" # previously `post` in Jekyll 2.2.
-    values:
-      layout: "essays"
-      category: "未归类"
-
-  - scope:
-      path: "_slides" # an empty string here means all files in the project
-      type: "slides" # previously `post` in Jekyll 2.2.
-    values:
-      layout: "slides"
-      category: "未归类"
-  

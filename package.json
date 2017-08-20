@@ -16,7 +16,7 @@
     "install": "bundler install",
     "jekyll": "bundler exec jekyll serve --verbose",
     "build:jekyll": "bundler exec jekyll build",
-    "build:admin": "cd packages/admin && npm run build && rm -rf ../../admin && mv docs/ ../../admin && cd ../..",
+    "build:admin": "cd packages/admin && npm run build && rm -rf ../../admin && mv docs/ ../../admin && cp manifest.json ../../admin && cd ../..",
     "build:blog": "cd packages/blog && npm run build && cd ../..",
     "build:all": "npm run build:blog && npm run build:admin",
     "open": "open",
