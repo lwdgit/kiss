@@ -150,7 +150,7 @@ const Posts = {
   getData: function () {
     this.loading = true
     if (!this.next) return
-    m.request(domain + this.next, {mode: 'no-cors'})
+    m.request(domain + this.next + '?' + Math.random(), {mode: 'no-cors'})
     .then((ret) => {
       this.posts = [...this.posts, ...ret.posts]
       this.next = ret.next
